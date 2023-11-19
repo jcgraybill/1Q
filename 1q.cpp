@@ -1,5 +1,6 @@
 #include <typeinfo>
 #include <cstdlib>
+#include <cstdint>
 
 struct node {
         uint64_t value;

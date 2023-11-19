@@ -1,4 +1,5 @@
 #include <typeinfo>
+#include <cstdint>
 
 void enqueue(uint64_t value);
 uint64_t dequeue();

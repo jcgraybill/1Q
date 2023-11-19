@@ -2,6 +2,7 @@
 #include <unistd.h>
 #include <map>
 #include <sstream>
+#include <cstdint>
 
 #include "1q.h"
 #include "queue_form.h"
