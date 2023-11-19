@@ -1,0 +1,9 @@
+*.dSYM
+main
+memory
+build
+tmp
+error.log
+*.sock
+*.dylib
+.DS_Store

@@ -1,0 +1,32 @@
+
+worker_processes  1;
+
+error_log  ${BASEDIR}/tmp/error.log;
+pid        ${BASEDIR}/tmp/nginx.pid;
+
+events {
+    worker_connections  1024;
+}
+
+http {
+    include       ${BASEDIR}/config/mime.types;
+    default_type  application/octet-stream;
+
+    sendfile        on;
+    keepalive_timeout  65;
+
+    server {
+        listen       8080;
+        server_name  localhost;
+
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+
+        location / {
+            fastcgi_pass   unix:${BASEDIR}/tmp/1Q.sock;
+            include        ${BASEDIR}/config/fastcgi_params;
+        }
+    }
+}
