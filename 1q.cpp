@@ -15,7 +15,7 @@ uint64_t queue_length() {
 }
 
 void enqueue(uint64_t value) {
-        node *n = (node*)malloc(sizeof(node));
+        node *n = (node*)std::malloc(sizeof(node));
         n->value = value;
         n->next = NULL;
         if (g_tail) {
@@ -33,11 +33,11 @@ uint64_t dequeue() {
                 int value = g_head->value;
                 node *previous_head = g_head;
                 g_head = g_head->next;
-                free(previous_head);
+                std::free(previous_head);
                 g_length--;
                 return value;
         } else {
-                exit(1);
+                std::exit(1);
         }
 }
 
