@@ -6,12 +6,14 @@ It's a little bit silly. It's not the right solution for many (well, most) (well
 
 Transport is via FastCGI, so it can be fronted by any FastCGI-compatible HTTP server, such as Apache httpd, lighttpd, or nginx. Delegates all transport concerns to the HTTP server - encryption, authentication, load balancing, you name it.
 
-1. Clone https://github.com/FastCGI-Archives/fcgi2
-2. Install `python3`, `nginx`, and `spawn-fcgi`
-2. Set `FASTCGI` environment variable to its root directory (In VS Code this is "Cmake: Environment / Environment variables to set when running CMake commands." in cmake-tools settings.)
-3. Copy  `libfcgi++.0.dylib` and `libfcgi.0.dylib` to `lib`
+How to build this. "It works on my laptop." The next work is removing all those hacks so it builds and runs more universally.
+
+1. Clone, build, and install https://github.com/FastCGI-Archives/fcgi2 and https://github.com/lighttpd/spawn-fcgi
+2. **HACK** | Set `FASTCGI` environment variable to its root directory (In VS Code this is "Cmake: Environment / Environment variables to set when running CMake commands." in cmake-tools settings.)
+3. **HACK** | Copy  `libfcgi++.0.dylib` and `libfcgi.0.dylib` to `lib`
 4. Build with CMake
-5. Run with `utils/start.sh`
-6. Web UI at http://localhost:8080/?pretty
-7. Enqueue with http://localhost:8080/?enqueue=### 
-8. Dequeue with http://localhost:8080/?dequeue
+5. Install `nginx`
+6. Run with `utils/start.sh`
+7. Web UI at http://localhost:8080/?pretty
+8. Enqueue with http://localhost:8080/?enqueue=### 
+9. Dequeue with http://localhost:8080/?dequeue
