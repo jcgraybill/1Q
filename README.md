@@ -8,14 +8,12 @@ Transport is via FastCGI, so it can be fronted by any FastCGI-compatible HTTP se
 
 **LIVE DEMO**: https://1q.julesgraybill.com/?pretty
 
-How to build this. "It works on my laptop." The next work is removing all those hacks so it builds and runs more universally.
+How to build this. *It works on my laptop.* The next work is removing all those hacks so it builds and runs more universally.
 
-1. Clone, build, and install https://github.com/FastCGI-Archives/fcgi2 and https://github.com/lighttpd/spawn-fcgi
-2. **HACK** | Set `FASTCGI` environment variable to its root directory (In VS Code this is "Cmake: Environment / Environment variables to set when running CMake commands." in cmake-tools settings.)
-3. **HACK** | Copy  `libfcgi++.0.dylib` and `libfcgi.0.dylib` to `lib`
-4. Build with CMake
-5. Install `nginx`
-6. Run with `utils/start.sh`
-7. Web UI at http://localhost:8080/?pretty
-8. Enqueue with http://localhost:8080/?enqueue=### 
-9. Dequeue with http://localhost:8080/?dequeue
+1. With your package manager, install `g++ cmake gcc make m4 autoconf automake libtool git nginx`
+2. Clone, build, and install https://github.com/FastCGI-Archives/fcgi2 and https://github.com/lighttpd/spawn-fcgi
+3. Clone this repo and build it with CMake: `cmake .` then `cmake --build .`
+4. Run with `utils/start.sh`
+5. The web ui is at http://localhost:8080/?pretty
+6. Enqueue with http://localhost:8080/?enqueue=### 
+7. Dequeue with http://localhost:8080/?dequeue

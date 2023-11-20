@@ -8,7 +8,7 @@ if [ ! -d $BASEDIR/tmp ]; then
     mkdir "$BASEDIR/tmp"
 fi
 
-/usr/bin/env DYLD_LIBRARY_PATH=$BASEDIR/lib/ \
+/usr/bin/env DYLD_LIBRARY_PATH=/usr/local/lib/ \
     spawn-fcgi \
     -s $BASEDIR/tmp/1Q.sock \
     $BASEDIR/build/1Q
